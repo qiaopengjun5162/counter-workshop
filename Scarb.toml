@@ -1,0 +1,26 @@
+[package]
+name = "workshop"
+version = "0.1.0"
+edition = "2023_01"
+
+# See more keys and their definitions at https://docs.swmansion.com/scarb/docs/reference/manifest.html
+
+[dependencies]
+starknet = ">=2.8.5"
+kill_switch = { git = "https://github.com/starknet-edu/kill-switch" }
+# openzeppelin = "0.19.0"
+openzeppelin_access = "0.19.0"
+openzeppelin_token = "0.19.0"
+openzeppelin_utils = "0.19.0"
+
+[[target.starknet-contract]]
+casm = true
+build-external-contracts = ["kill_switch::KillSwitch"]
+
+[dev-dependencies]
+snforge_std = "0.33.0"
+openzeppelin_utils = "0.19.0"
+openzeppelin = "0.19.0"
+
+[scripts]
+test = "snforge test"
